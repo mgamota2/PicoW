@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+<head>
+  
+  <style>
+        body {
+            background-color: #212121;
+            color: #FFFFFF;
+            font-family: Arial, Helvetica, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 25px;
+        }
+        
+        h1 {
+            font-size: 48pt;
+        }
+        h2 {
+            font-size: 30pt;
+            margin-right: 60px;
+        }
+        
+        a {
+            color: #006933;
+            text-decoration: none;
+        }
+        slider {
+            width: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 50px;
+        }
+        button-container {
+            width: 100vh;
+            flex-direction: column;
+            justify-content: center;
+            padding: 25px;
+            display: inline-block;
+        }
+        span {
+            font-size: 48pt;
+            padding: 20px;
+            align-items: center;
+            justify-content: center;
+        }
+        .slider {
+          -webkit-appearance: none;
+          appearance: none;
+          width: 500px;
+          height: 35px;
+          border-radius: 15px;
+          background: #545454;
+          outline: none;
+        }
+        .slider::-webkit-slider-thumb {
+          -webkit-appearance: none;
+          appearance: none;
+          width: 80px;
+          height: 80px;
+          border-radius: 50%;
+          background: #01648f;
+          cursor: pointer;
+        }
+        .slider::-moz-range-thumb {
+          width: 80px;
+          height: 80px;
+          border-radius: 50%;
+          background: #01648f;
+          cursor: pointer;
+        }
+        
+        button {
+        background-color: #01648f;
+        border: none;
+        color: #fff;
+        padding: 15px 30px;
+        margin: 4px 2px;
+        cursor: pointer;
+        font-family: Arial, Helvetica, sans-serif;
+        border-radius: 4px;
+        display: inline-block;
+        
+          }
+        .button-cont {      
+          margin: 1rem;
+          text-align: center;
+          padding: 60px;
+        }
+        .button-container {
+          display: inline-block;
+          vertical-align: middle;
+        }
+        .button-container1 {
+          display: inline-block;
+          vertical-align: middle;
+          background-color: #ff0000;
+          border-radius: 2px;
+        }
+        input[type=checkbox]{
+          height: 0;
+          width: 0;
+          visibility: hidden;
+        }
+
+        label {
+          cursor: pointer;
+          text-indent: -9999px;
+          width: 200px;
+          height: 100px;
+          background: grey;
+          display: block;
+          border-radius: 100px;
+          position: relative;
+        }
+
+        label:after {
+          content: '';
+          position: absolute;
+          top: 5px;
+          left: 5px;
+          width: 90px;
+          height: 90px;
+          background: #fff;
+          border-radius: 90px;
+          transition: 0.3s;
+        }
+
+        input:checked + label {
+         background: grey;
+        }
+
+        input:checked + label:after {
+          left: calc(100% - 5px);
+          transform: translateX(-100%);
+        }
+
+        label:active:after {
+          width: 130px;
+        }
+
+        // centering
+        body {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100vh;
+        }
+        .checks {
+          display: flex;
+          justify-content: 10px;
+        }
+
+
+        </style>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+  <title>Train Control</title>
+
+
+  <input type="range" class = "slider" id="slider" min="0" max="100" step="5" value="0">
+
+  <div class="button-cont">
+            <div class="button-container">    
+                <button id="button1" data-value="button1">Backwards</button>
+            </div>
+            <div class="button-container1">
+                <button id="button2" data-value="button2">E Stop</button>
+            </div>
+            <div class="button-container">
+                <button id="button3" data-value="button3">Forwards</button>
+            </div>
+  </div>
+  
+  
+  
+
+  <br><br>
+  <div class="checks">
+  <input type="checkbox" id="checkbox1">
+  <label for="checkbox1">Checkbox 1</label>
+  
+
+  <input type="checkbox" id="checkbox2">
+  <label for="checkbox2">Checkbox 2</label>
+  
+
+  <input type="checkbox" id="checkbox3">
+  <label for="checkbox3">Checkbox 3</label>
+  
+
+  <input type="checkbox" id="checkbox4">
+  <label for="checkbox4">Checkbox 4</label>
+  
+  </div>
+  
+  
+  
+    
+  <script>
+    // Function to update the page address
+    function updatePageAddress() {
+      var address = window.location.origin + "?";
+
+      address += "slider=" + $("#slider").val();
+
+      if ($("#checkbox1").is(":checked"))
+        address += "&checkbox1=true";
+      else
+        address += "&checkbox1=false";
+
+      if ($("#checkbox2").is(":checked"))
+        address += "&checkbox2=true";
+      else
+        address += "&checkbox2=false";
+
+      if ($("#checkbox3").is(":checked"))
+        address += "&checkbox3=true";
+      else
+        address += "&checkbox3=false";
+
+      if ($("#checkbox4").is(":checked"))
+        address += "&checkbox4=true";
+      else
+        address += "&checkbox4=false";
+
+      var buttonValue = $("button.active").attr("data-value");
+      if (buttonValue)
+        address += "&button=" + buttonValue;
+
+      window.history.pushState(null, null, address);
+    }
+
+    // Event listeners for slider, buttons, and checkboxes
+     $(document).ready(function() {
+      $("#slider").on("input", updatePageAddress);
+
+      $("button").click(function() {
+        $("#slider").val(0);
+        $("button").removeClass("active");
+        $(this).addClass("active");
+        updatePageAddress();
+      });
+
+      $("input[type='checkbox']").change(updatePageAddress);
+   });
+  </script>
+
+</body>
+</html>
+
