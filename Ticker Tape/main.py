@@ -8,6 +8,8 @@ from wifi_pw import secrets
 from wifi_init import *
 from stock_data import *
 import neopixel
+from printChars import *
+from bits import *
 
 np = neopixel.NeoPixel(machine.Pin(16), n=3,bpp=3,timing=1)
 
@@ -15,6 +17,7 @@ ticker_list=[]
 my_stocks=[]
 stocks_list=[]
 
+clear()
 led=machine.Pin('LED', machine.Pin.OUT)
 
 x = init_wifi()
@@ -68,6 +71,7 @@ def stock_obj_list(string_list):
         stock_list.append(Stock(tick))
     return stock_list
 
+first_pass = True
 # Listen for connections
 while True:
     #Web server access
@@ -108,6 +112,7 @@ while True:
         led.value(0)
         print('Connection closed from timeout')
     except (KeyboardInterrupt):
+        clear()
         s.close()
         led.value(0)
         print('Connection closed')
@@ -115,12 +120,28 @@ while True:
     
     print(ticker_list)
     
+    if first_pass==True:
+        for i in range (len(my_stocks)):
+            update_stocks(my_stocks, i)
+        first_pass=False
+        
+    
     #Iterate over the stocks, update them, then display their name, price, and percent change
     for i in range (len(my_stocks)):
+        if str(my_stocks[i].percent_change)=='0':
+            color='blue'
+        elif '-' in str(my_stocks[i].percent_change):
+            color='red'
+        else:
+            color='green'
+            
+        print_string(str(my_stocks[i].name), color)
         update_stocks(my_stocks, index=i)
-        msg=(str(my_stocks[i].name) + '\r\n' + str(my_stocks[i].price) + '\r\n' + str(my_stocks[i].percent_change)+ '%' + '\r\n')
-        print(msg)
-    
+        print_num(str(my_stocks[i].price), color)
+        time.sleep(3)
+        print_p(str(my_stocks[i].percent_change), color)
+        time.sleep(3)
+        
     
     
     
