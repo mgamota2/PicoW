@@ -6,8 +6,13 @@ sensor board, a buzzer on the analog section of the board goes off along with an
 email using SMTP. There is also a voltage divider connected to the ADC to read battery level if being powered with a battery, an alert is sent when battery is low.
 
 ## Files Overview
-The Code folder contains the MicroPython firmware.
+The Code directory contains the MicroPython firmware.
 
 main.py : Reads ADC values to determine if there is a leak/low battery
 
 umail.py : 3rd party library used to send email alert
+
+### PCB Files
+The WaterSensor directory contains the KiCAD project files for the main board which has the buzzer, Raspberry Pi Pico W, etc.
+
+The WaterSensorTraces directory contains the KiCAD project files for the sensor itself
