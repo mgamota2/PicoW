@@ -14,7 +14,7 @@ html = """<!DOCTYPE html>
     <html>
         <head> <title>Pico W</title> </head>
         <body> <h1>Pico W</h1>
-            <p>Matthew Gamota</p>
+            <p>Default Text</p>
             
         </body>
     </html>
