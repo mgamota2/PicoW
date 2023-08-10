@@ -59,13 +59,13 @@ def connect_to_internet(ssid, password):
 def send_email(x):
     sender_email = 'scraperw50@gmail.com'
     sender_name = 'Water Heater'
-    sender_app_password = 'gnjvjmoieoenjxrc'
+    sender_app_password = ''
     recipient_email = 'mggamota@gmail.com'
     
     if x == 0:
         content='Battery is low, please replace'
     if x == 1:
-        content= '********s ALERT: THERE IS A LEAK ********'
+        content= '******** ALERT: THERE IS A LEAK ********'
     connect_to_internet(wifi_ssid, wifi_pw)
 
     
