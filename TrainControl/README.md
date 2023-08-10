@@ -16,4 +16,4 @@ train_func.py : This file defines the trackPins and railPins classes which corre
 wifi_init.py : This file defines a helper function to connect the Pico W to a WiFi network and establish the server
 
 ### PCB
-Since this project includes hardware design, the KiCAD project files are provided
+Since this project includes hardware design, the KiCAD project files are provided. Files under RevisedControlBoard are the working version
