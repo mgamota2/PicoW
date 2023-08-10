@@ -1,6 +1,7 @@
 # Ticker Tape
 
 ## Overview
+This repo includes 
 
 ## File Purposes
 - bits.py : Custom LED matrix driver for WS2812B LEDs arranged in 7x21 (rows, column) in serpentine rastar order (left to right, "snake").
