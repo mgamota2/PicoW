@@ -9,4 +9,5 @@ email using SMTP. There is also a voltage divider connected to the ADC to read b
 The Code folder contains the MicroPython firmware.
 
 main.py : Reads ADC values to determine if there is a leak/low battery
+
 umail.py : 3rd party library used to send email alert
