@@ -11,8 +11,14 @@ inputs, allowing remote control of the train
 **Files in the Full Control folder support track switching, speed, and direction while files in the Speed Control folder only support speed control.
 
 index.html : This file contains the HTML, CSS, and JavaScript code to create, style, and add functionality to the slider and buttons.
+
+
 main.py : This file initilizes a train object and parses requests from the server to evaluate user input and change speedm direction, or switching tracks accordingly
+
+
 train_func.py : This file defines the trackPins and railPins classes which correspond to the switching tracks and train direction and speed, respectively
+
+
 wifi_init.py : This file defines a helper function to connect the Pico W to a WiFi network and establish the server
 
 ### PCB
