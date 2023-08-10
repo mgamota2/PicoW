@@ -1,7 +1,7 @@
 # Ticker Tape
 
 ## Overview
-This repo includes 
+This repo includes MicroPython code to create your own customizable stock ticker tape with a DIY LED matrix made from a WS2812B LED strip
 
 ## File Purposes
 - bits.py : Custom LED matrix driver for WS2812B LEDs arranged in 7x21 (rows, column) in serpentine rastar order (left to right, "snake").
