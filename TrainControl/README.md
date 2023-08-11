@@ -6,6 +6,8 @@ This project includes both hardware design and firmware for the Raspberry Pi Pic
 direction of the train as well as switch electrically switching tracks. The hub is controlled from a Raspberry Pi Pico hosted web server which has a dashboard for user 
 inputs, allowing remote control of the train
 
+![alt text](https://github.com/mgamota/PicoW/TrainControl/main/site.jpg?raw=true)
+
 
 ## File Descriptions
 **Files in the Full Control folder support track switching, speed, and direction while files in the Speed Control folder only support speed control.
