@@ -25,3 +25,5 @@ wifi_init.py : This file defines a helper function to connect the Pico W to a Wi
 
 ### PCB
 Since this project includes hardware design, the KiCAD project files are provided. Files under RevisedControlBoard are the working version
+
+![image](https://github.com/mgamota2/PicoW/assets/97132068/64564c68-b82f-4ad4-bb33-db4253208216)
