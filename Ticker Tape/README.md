@@ -10,4 +10,7 @@ This repo includes MicroPython code to create your own customizable stock ticker
 - stock_data.py : Creates a class which stores the stock name, current price, and percent change from previous close. This data is gathered by calling the Finnhub.io API (https://finnhub.io/docs/api/introduction) You will need an API key, but the free version will work for this application. Put yours in line 15
 - wifi_init.py : Helper function to initialize wifi connection and server on Pico W.
 
+## Use
+You must run the code in an environment where you can see the Pico W IP address before deploying.
+
 ![image](https://github.com/mgamota2/PicoW/assets/97132068/879522c4-6bea-480d-b405-501fe0fa0f47)
