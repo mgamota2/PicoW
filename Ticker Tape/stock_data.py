@@ -12,7 +12,7 @@ class Stock():
         self.price=0
         self.percent_change=0
         self.result=[]
-        self.url = 'https://finnhub.io/api/v1/quote?symbol=' + self.name + '&token=cikt6q1r01qk492qui8gcikt6q1r01qk492qui90'
+        self.url = 'https://finnhub.io/api/v1/quote?symbol=' + self.name + '&token=YOUR API TOKEN'
     
     #Get the data from the finnhub API, store it in the object
     def get_data(self):
